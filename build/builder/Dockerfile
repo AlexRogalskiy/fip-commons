@@ -14,7 +14,7 @@ COPY . .
 
 RUN /entrypoint.sh
 
-FROM golang:1.16 as license
+FROM golang:1.22 as license
 
 RUN go get -u github.com/google/addlicense
 
@@ -25,7 +25,7 @@ COPY . .
 
 RUN addlicense -c "SIGHUP s.r.l" -v -l bsd --check .
 
-FROM golang:1.16 as tester
+FROM golang:1.22 as tester
 
 RUN mkdir /app
 WORKDIR /app
